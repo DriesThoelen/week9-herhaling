@@ -30,7 +30,7 @@ public class Venue {
 
     private String generateId() {
         StringBuilder builder = new StringBuilder("V-");
-        builder.append(String.format("%4d", count));
+        builder.append(String.format("%04d", count));
         return builder.toString();
     }
 
@@ -80,5 +80,15 @@ public class Venue {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Venue nr. : " + id + "\n"
+                + "Name : " + name + "\n"
+                + "Street : " + street + "\n"
+                + "Zip Code : " + zipCode + "\n"
+                + "City : " + city + "\n"
+                + "Capacity : " + capacity;
     }
 }

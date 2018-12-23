@@ -1,6 +1,7 @@
 package be.pxl.ja.ticketsystem;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class User {
     private static int count = 0;
@@ -24,7 +25,7 @@ public class User {
 
     private String generateId() {
         StringBuilder builder = new StringBuilder("U-");
-        builder.append(String.format("%6d", count));
+        builder.append(String.format("%06d", count));
         return builder.toString();
     }
 
@@ -58,5 +59,13 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User nr. : " + id + "\n"
+                + "Last Name : " + lastname + "\n"
+                + "First Name : " + firstname + "\n"
+                + "Birthday : " + birthday.format(DateTimeFormatter.ofPattern("dd/MM/uuuu"));
     }
 }
